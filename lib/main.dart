@@ -2,34 +2,36 @@ import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 
 void main() {
-  return runApp(TimeInterval());
+  return runApp(const TimeInterval());
 }
 
 class TimeInterval extends StatelessWidget {
+  const TimeInterval({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
           body: SafeArea(
-        child: SfCalendar(
-          view: CalendarView.day,
-          allowedViews: [
-            CalendarView.day,
-            CalendarView.week,
-            CalendarView.workWeek,
-            CalendarView.timelineDay,
-            CalendarView.timelineWeek,
-            CalendarView.timelineWorkWeek,
-            CalendarView.timelineMonth
-          ],
-          dataSource: _getCalendarDataSource(),
-          timeSlotViewSettings: TimeSlotViewSettings(
-              timeInterval: Duration(hours: 2),
-              timeIntervalHeight: 80,
-              timeIntervalWidth: 100),
-        ),
-      )),
+            child: SfCalendar(
+              view: CalendarView.day,
+              allowedViews: const [
+                CalendarView.day,
+                CalendarView.week,
+                CalendarView.workWeek,
+                CalendarView.timelineDay,
+                CalendarView.timelineWeek,
+                CalendarView.timelineWorkWeek,
+                CalendarView.timelineMonth
+              ],
+              dataSource: _getCalendarDataSource(),
+              timeSlotViewSettings: const TimeSlotViewSettings(
+                  timeInterval: Duration(hours: 2),
+                  timeIntervalHeight: 80,
+                  timeIntervalWidth: 100),
+            ),
+          )),
     );
   }
 
